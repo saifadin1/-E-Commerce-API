@@ -10,6 +10,7 @@ namespace E_Commerce_API.Models
         public double Price { get; set; }
         [MaxLength(500)]
         public string Description { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
 }
