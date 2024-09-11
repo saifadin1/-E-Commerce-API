@@ -1,4 +1,5 @@
-﻿using E_Commerce_API.Models;
+﻿using E_Commerce_API.DTOs.ProductDTOs;
+using E_Commerce_API.Models;
 
 namespace E_Commerce_API.Interfaces
 {

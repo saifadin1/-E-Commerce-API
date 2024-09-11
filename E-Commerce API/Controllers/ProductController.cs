@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using E_Commerce_API.DTOs.ProductDTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_Commerce_API.Controllers

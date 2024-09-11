@@ -1,4 +1,6 @@
-﻿namespace E_Commerce_API.Services
+﻿using E_Commerce_API.DTOs.ProductDTOs;
+
+namespace E_Commerce_API.Services
 {
     public class ProductRepoService : IProductRepository
     {
