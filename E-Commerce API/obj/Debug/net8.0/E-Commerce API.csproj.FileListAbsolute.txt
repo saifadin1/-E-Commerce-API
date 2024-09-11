@@ -135,3 +135,5 @@ C:\Users\seif medhat\source\repos\E-Commerce API\E-Commerce API\obj\Debug\net8.0
 C:\Users\seif medhat\source\repos\E-Commerce API\E-Commerce API\obj\Debug\net8.0\E-Commerce API.pdb
 C:\Users\seif medhat\source\repos\E-Commerce API\E-Commerce API\obj\Debug\net8.0\E-Commerce API.genruntimeconfig.cache
 C:\Users\seif medhat\source\repos\E-Commerce API\E-Commerce API\obj\Debug\net8.0\ref\E-Commerce API.dll
+C:\Users\seif medhat\source\repos\E-Commerce API\E-Commerce API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\seif medhat\source\repos\E-Commerce API\E-Commerce API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

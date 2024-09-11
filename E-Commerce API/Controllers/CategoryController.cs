@@ -1,7 +1,4 @@
-﻿using E_Commerce_API.DTOs.Category;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Dynamic;
+﻿
 
 namespace E_Commerce_API.Controllers
 {
@@ -58,6 +55,3 @@ namespace E_Commerce_API.Controllers
     }
 }
 
-
-
-// get products by category
