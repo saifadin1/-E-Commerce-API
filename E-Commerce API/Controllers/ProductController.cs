@@ -38,14 +38,14 @@ namespace E_Commerce_API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> AddProduct(ProductDTO _product)
+        public async Task<IActionResult> AddProduct(AddProductDTO _product)
         {
             if(_product == null)
             {
                 return BadRequest();
             }
             await productRepo.AddProduct(_product);
-            return CreatedAtAction(nameof(GetProduct), new { id = _product.Id }, _product);
+            return Created();
         }
 
     }

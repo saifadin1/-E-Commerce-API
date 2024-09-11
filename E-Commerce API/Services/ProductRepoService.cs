@@ -43,7 +43,7 @@
             return productDTO;
         }
 
-        public async Task AddProduct(ProductDTO _product)
+        public async Task AddProduct(AddProductDTO _product)
         {
             var product = new Product
             {
@@ -52,7 +52,6 @@
                 CategoryId = _product.CategoryId,
                 Description = _product.Description
             };
-            var category = await context.Categories.FirstOrDefaultAsync(c => c.Id == _product.CategoryId);
             await context.Products.AddAsync(product);
             await context.SaveChangesAsync();
         }
