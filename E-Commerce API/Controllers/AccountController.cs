@@ -33,7 +33,7 @@ namespace E_Commerce_API.Controllers
                 IdentityResult res = await userManager.CreateAsync(user, registerDTO.Password); 
                 if(res.Succeeded)
                 {
-                    return Ok();
+                    return Ok(user);
                 }
                 return BadRequest(res.Errors.FirstOrDefault());
             }
@@ -53,7 +53,7 @@ namespace E_Commerce_API.Controllers
                     {
                         var claims = new List<Claim>
                         {
-                            new Claim(ClaimTypes.NameIdentifier, user.Id),
+                            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                             new Claim(ClaimTypes.Name, user.UserName),
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                         };

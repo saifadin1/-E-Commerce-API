@@ -4,6 +4,7 @@ using E_Commerce_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240911235239_remove Id to Appuser")]
+    partial class removeIdtoAppuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,7 +33,7 @@ namespace E_Commerce_API.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CartId")
+                    b.Property<int>("CartId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -109,25 +112,6 @@ namespace E_Commerce_API.Migrations
                     b.ToTable("Carts");
                 });
 
-            modelBuilder.Entity("E_Commerce_API.Models.CartProduct", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CartId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "CartId");
-
-                    b.HasIndex("CartId");
-
-                    b.ToTable("CartProducts");
-                });
-
             modelBuilder.Entity("E_Commerce_API.Models.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -171,7 +155,7 @@ namespace E_Commerce_API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orderes");
                 });
 
             modelBuilder.Entity("E_Commerce_API.Models.Product", b =>
@@ -181,6 +165,9 @@ namespace E_Commerce_API.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CartId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -202,6 +189,8 @@ namespace E_Commerce_API.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CartId");
 
                     b.HasIndex("CategoryId");
 
@@ -347,28 +336,11 @@ namespace E_Commerce_API.Migrations
                 {
                     b.HasOne("E_Commerce_API.Models.Cart", "Cart")
                         .WithMany()
-                        .HasForeignKey("CartId");
-
-                    b.Navigation("Cart");
-                });
-
-            modelBuilder.Entity("E_Commerce_API.Models.CartProduct", b =>
-                {
-                    b.HasOne("E_Commerce_API.Models.Cart", "Cart")
-                        .WithMany("CartProducts")
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_Commerce_API.Models.Product", "Product")
-                        .WithMany("CartProducts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Cart");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("E_Commerce_API.Models.Order", b =>
@@ -384,6 +356,10 @@ namespace E_Commerce_API.Migrations
 
             modelBuilder.Entity("E_Commerce_API.Models.Product", b =>
                 {
+                    b.HasOne("E_Commerce_API.Models.Cart", null)
+                        .WithMany("Products")
+                        .HasForeignKey("CartId");
+
                     b.HasOne("E_Commerce_API.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
@@ -455,7 +431,7 @@ namespace E_Commerce_API.Migrations
 
             modelBuilder.Entity("E_Commerce_API.Models.Cart", b =>
                 {
-                    b.Navigation("CartProducts");
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("E_Commerce_API.Models.Category", b =>
@@ -466,11 +442,6 @@ namespace E_Commerce_API.Migrations
             modelBuilder.Entity("E_Commerce_API.Models.Order", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("E_Commerce_API.Models.Product", b =>
-                {
-                    b.Navigation("CartProducts");
                 });
 #pragma warning restore 612, 618
         }

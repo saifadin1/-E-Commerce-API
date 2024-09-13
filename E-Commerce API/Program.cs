@@ -1,5 +1,3 @@
-
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -20,6 +18,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductRepository, ProductRepoService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepoService>();
+builder.Services.AddScoped<ICartRepository, CartRepoService>();
+
+
 builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddAuthentication(options => 

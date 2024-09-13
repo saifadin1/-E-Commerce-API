@@ -4,6 +4,7 @@ using E_Commerce_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240912052602_Add CartProduct entity")]
+    partial class AddCartProductentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +118,6 @@ namespace E_Commerce_API.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("CartId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -125,7 +127,7 @@ namespace E_Commerce_API.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.ToTable("CartProducts");
+                    b.ToTable("CartProduct");
                 });
 
             modelBuilder.Entity("E_Commerce_API.Models.Category", b =>
@@ -171,7 +173,7 @@ namespace E_Commerce_API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orderes");
                 });
 
             modelBuilder.Entity("E_Commerce_API.Models.Product", b =>

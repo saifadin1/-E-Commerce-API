@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿    using System.ComponentModel.DataAnnotations;
 
 namespace E_Commerce_API.Models
 {
@@ -12,5 +12,6 @@ namespace E_Commerce_API.Models
         public string Description { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        public ICollection<CartProduct> CartProducts { get; set; }
     }
 }
