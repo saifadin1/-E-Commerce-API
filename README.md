@@ -16,6 +16,6 @@ An API for managing products, carts, orders, and handling payments using Stripe 
 - JWT Authentication: For securing API endpoints
 
 ## Architecture Diagram
-![E-Commerce API Architecture](assets/simple-ecommerce-api.png)
+![E-Commerce API Architecture](/assets/simple-ecommerce-api-thzqo.png)
 
 This diagram represents the architecture of the E-Commerce API, showing the main backend service, JWT authentication, and Stripe payment integration.
