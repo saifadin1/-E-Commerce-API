@@ -14,3 +14,8 @@ An API for managing products, carts, orders, and handling payments using Stripe 
 - Entity Framework Core: For database operations
 - SQL Server: Database management system
 - JWT Authentication: For securing API endpoints
+
+## Architecture Diagram
+![E-Commerce API Architecture](assets/simple-ecommerce-api.png)
+
+This diagram represents the architecture of the E-Commerce API, showing the main backend service, JWT authentication, and Stripe payment integration.
